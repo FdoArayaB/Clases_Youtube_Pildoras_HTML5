@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Selectores por contenido de un atributo CSS3</title>
+
+    <style>
+      p[name="miselementos"]{ /*se aplica cuando el valor del atributo name es exactamente igual al valor que se le indica*/
+        color: red;
+      }
+
+      p[name^="mis"]{ /*se aplica cuando el valor del atributo name comienza con el valor que se le indica*/
+        color: green;
+      }
+
+
+      p[name$="tos"]{ /*se aplica cuando el valor del atributo name termina con el valor que se le indica*/
+        color: yellow;
+      }
+
+      p[name*="se"]{ /*se aplica cuando el valor del atributo name contiene la frase dentro del name */
+        color: gray;
+      }
+
+    </style>
+
+  </head>
+  <body>
+    <p name="misestilos">Hola</p>
+    <p name="miselementos">Adios</p>
+    <p name="miselementos">Febrero</p>
+  </body>
+</html>

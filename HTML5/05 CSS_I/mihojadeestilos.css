@@ -1,0 +1,24 @@
+body{
+  background-color: white;
+  /*body: etiqueta, background: propiedad, luego ":", y finalmente el valor de la propiedad*/
+}
+
+#cabeceraweb{
+  background-color: blue;
+}
+
+#navegacionprincipal{
+  background-color: yellow;
+}
+
+#barralateral{
+  background-color: grey;
+}
+
+#contenidoprincipal{
+  background-color: purple;
+}
+
+#pieprincipal{
+  background-color: red;
+}
