@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Pseudoclases CSS3</title>
+
+    <style>
+      p:nth-child(2){/*se le aplica el color a todos los p que son hermanos y está en la segunda posicion*/
+        color:red;
+      }
+
+      p:nth-child(odd){/*se le aplica el color de fondo a todos los p hermanos pero con la posicion inpar*/
+        background-color: pink;
+      }
+
+      p:nth-child(even){/*se le aplica el negrita a todos los p hermanos pero con la posicion par*/
+        font-weight: bold;
+      }
+
+
+      p:first-child{/*se le aplica el color a todos los p que sean los primero hijos*/
+        color: green;
+      }
+
+      p:last-child{/*se le aplica el color a todos los p que sean los ultimos hijos*/
+        color: purple;
+      }
+
+      p:only-child{/*se le aplica el color a todos los p que sean los únicos hijos*/
+        color: orange;
+      }
+
+    </style>
+
+  </head>
+  <body>
+
+
+    <p>Hola</p>
+    <p>Adios</p>
+    <p>Febrero</p>
+
+    <ul>
+      <li>frutas <p> unica hija</p></li>
+      <li><p>manzana</p>
+      <p>limon</p>
+      <p>naranja</p>
+      <p>melon</p> </li>
+
+    </ul>
+
+
+    <p>ultimo p hija </p>
+  </body>
+</html>

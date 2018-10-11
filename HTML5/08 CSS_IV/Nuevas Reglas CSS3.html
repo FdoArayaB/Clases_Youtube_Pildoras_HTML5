@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Nuevas Reglas CSS3</title>
+    <style>
+
+      #principal{
+        width: 500px;
+        /* background-color: blue; */
+        text-align: center;
+        margin: 15px auto;
+        padding: 15px;
+        border: 3px solid red;
+        border-radius: 15px;
+        box-shadow: red 20px 20px 5px; /*color, sombra horizontal, sombra vertical, desenfoque*/
+
+        /*mozila degradado*/
+        /* background: -moz-linear-gradient(bottom,yellow,green); */
+
+        /*chroome degradado*/
+        /* background: -webkit-linear-gradient(top,green,yellow); */
+
+        /*explorer degradado*/
+        /* background: -ms-linear-gradient(top,pink,yellow); */
+
+        /*opera degradado*/
+        /* background: -o-linear-gradient(top,grey,yellow); */
+
+        /*generar degradado en circulo */
+        background: -webkit-radial-gradient(center, circle, yellow, green);
+        /*generar degradado en elipse */
+        background: -ms-radial-gradient(center, ellipse, pink, green);
+
+        /*genera una borde exterior al contenedor principal*/
+        /* outline: 2px dashed blue; */
+        /*aleja el cuadrado de outline mas lejos*/
+        /* outline-offset: 10px; */
+
+        /*cambiar tamaño del original en un cierto porcentaje*/
+        /* -webkit-transform:scale(0.8); */
+
+        /*roatar un elemento*/
+        /* -webkit-transform:rotate(3deg); */
+
+        /*cambiar perspectiva de un elemento*/
+        /* -webkit-transform:skew(50deg); */
+
+        /*le da un tiempo de transisiciones los hover que se realicen*/
+        -webkit-transition:-webkit-transform 1s ease 0.5s;
+
+      }
+
+      #principal:hover{ /*esp hace que cuando el raton se pase por encima rote en 3 deg*/
+        -webkit-transform:rotate(3deg)
+      }
+
+      #titulo{
+        font: bold 36px 'mipropiafuente';
+        /* text-shadow: yellow 2px 2px 2px; */
+        color: rgba(0, 0, 0, 0.5); /*dar color per con transpariencia 0: 100 transparente, 1:100% opaco*/
+
+      }
+
+      @font-face{ /*para que funcione correctamente, la fuente debe estar en la misma posicion que la del html*/
+        font-family: 'mipropiafuente';
+        src: url('VESPASIAN_TIMES.ttf');
+      }
+
+    </style>
+  </head>
+  <body>
+    <header id="principal">
+      <span id="titulo">Estilos CSS3</span> <!--el espan no genera nada al texto, es solo una caja contenedora-->
+    </header>
+  </body>
+</html>
