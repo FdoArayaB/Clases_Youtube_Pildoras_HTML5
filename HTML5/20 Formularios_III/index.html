@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Api Forms</title>
 
     <style>
       table{
@@ -51,10 +51,27 @@
       }
 
       function enviar(){
+        var cuadro_usuario =document.getElementById('usuario');
         var correcto = document.datos_usuario.checkValidity(); //entrega el valor de true o false , dependiendo si el formulario pudo o no enviar los datos del formulario
-          if (correcto==true) {
-            document.datos_usuario.submit();
+        if (correcto==true) {
+          document.datos_usuario.submit(); //eso hace que se envié el formulario
+        }else if (cuadro_usuario.validity.valueMissing==true || cuadro_usuario.validity.patternMismatch==true) { //esto entre true or false, en el caso que valor de cuadro es vacio o no.
+          alert("El usuario no puede estar vacío, y recuerda que tiene que tener 3 letras")
         }
+
+        /*
+        Propiedades de validaciones (validity)
+        -valueMissing: ve si el valor de la celda es vacio
+        -patternMismatch: true cuendo el formato del valor no coincide con el formato pattern
+        -typeMismatch: true cuando la sintaxis no coincide con el tipo de campo
+        -tooLong: true cuendo excede el maxlength
+        -rangeUnderflow: true cuando se sobrepasa el min
+        -rangeOverflow: true cuando se sobrepasa max
+        -stepMismatch:true cuando el valor de numbre no se corresponde con el step
+        -customError: true cuando declaramos errror personalizado con setCustomValidity
+
+
+        */
       }
 
       function validar_tiempo_real(e){

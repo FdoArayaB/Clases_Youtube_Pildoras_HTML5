@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Canvas</title>
+
+    <style>
+
+      #lienzo{
+          background-color: orange;
+      }
+
+      #dibujo{
+        width: 500px;
+        position: relative;
+        margin: auto;
+      }
+    </style>
+
+    <script>
+
+      function comenzar(){
+        var elemento = document.getElementById('lienzo');
+        lienzo = elemento.getContext('2d');
+
+        lienzo.fillStyle = "pink";//el color se debe poner antes para que dibuje en ese color
+        lienzo.strokeStyle = "blue";//el color se debe poner antes para que dibuje en ese color
+        lienzo.globalAlpha=0.7; //transparencia
+        lienzo.fillRect(90,50,200, 150); //cuadrado relleno
+        lienzo.strokeRect(90,50,200, 150);
+        lienzo.clearRect(120,80,75,50); //limpiar o borrar parte rellena
+
+
+      }
+
+      window.addEventListener('load',comenzar,false);
+    </script>
+
+  </head>
+  <body>
+
+    <section id="dibujo">
+
+      <canvas id="lienzo" width="500" height="300">
+        Su navegador no soporta el elemento HTML5 canvas
+
+        <!--Elementos canvas
+
+          getContext("2d") //esto se debe definir antes de dibujar
+
+          Elemento rectangulo
+          fillRect(x,y,ancho,alto) (dibuja rectangulo)
+          strokeRect(x,y,ancho,alto) (dibuja rectangulo vacío)
+          clearRect(x,y,ancho,alto) ()borrador rectangular
+
+          Elemento Colores
+          strokeStyle: propiedad para color de contorno
+          fullStyle: propiedad de color de relleno
+          globalAlpha: transparencia de todas las figulas del lienzo
+
+        -->
+      </canvas>
+
+    </section>
+
+  </body>
+</html>
