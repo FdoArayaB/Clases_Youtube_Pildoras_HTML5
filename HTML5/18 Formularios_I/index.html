@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  <!-- Nuevos atributos formularios
+    text:
+    email:
+    search:
+    url:
+    tel:
+    number:
+    range:
+    date:
+    week:
+    month:
+    time:
+    datetime:
+   -->
+
+  <section>
+    <form name="miformulario" id="miformulario" method="get" autocomplete="on">
+      Texto:<input type="text" name="texto" id="texto"><br><br>
+      Email:<input type="email" name="email" id="email" multiple><br><br>
+      <!--Buscar:<input type="search" name="buscador" id="buscador">&nbsp
+      URL:<input type="url" name="url" id="url">&nbsp
+      Tel:<input type="tel" name="tel" id="tel">&nbsp -->
+      Edad:<input type="number" name="edad" id="edad" min="0" max="100" step="5" placeholder="la edad debe ser multiplos de 5"><br><br>
+      Año:<input type="range" name="año" id="año" min="0" max="1000" step="5" placeholder="la edad debe ser multiplos de 5"><br><br>
+      <!--el step es para solo seleccionar intervalos o rangos, por ejemplo 5, es decir 5-10-15, etc. -->
+
+      Fecha:<input type="date" name="fecha" id="fecha" required autofocus><br><br>
+      Semana:<input type="week" name="semana" id="semana"><br><br>
+      Mes:<input type="month" name="mes" id="mes"><br><br>
+      Tiempo:<input type="time" name="Tiempo" id="Tiempo"><br><br>
+      <!-- ZonaHoraria:<input type="datetime" name="ZonaHoraria" id="ZonaHoraria"> -->
+      Codigo Postal <input  name="codigo" id="codigo" pattern="[0-9]{5}" placeholder="5 números"><br><br>
+
+<!--  Atributos
+placeholder (información que debe ingresar el usuario)
+required (al campo que se le indica esto, el usuariio debe ingresarlo de forma obligatoria para enviar el formulario)
+multiple (enviar mas de un dato en un camppo)
+autofocus (es para que cuando se cargue el formulario o la pagina este e cursor ahí)
+pattern (es para entregar validaciones extras)
+form ( lo que hace es que en el caso queramos que otro input que no está dentro del formulario pueda estar enlazado de igual forma)
+
+
+-->
+
+      <input type="submit" value="Enviar"><br><br>
+    </form>
+  </section>
+
+
+  <img src="1.jpg" ><br><br>
+  Nombre:&nbsp <input type="text" name="nombreFlor" value="" form="miformulario">
+  </body>
+</html>

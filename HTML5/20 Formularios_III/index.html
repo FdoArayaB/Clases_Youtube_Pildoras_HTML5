@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <style>
+      table{
+        text-align: center;
+        background-color: orange;
+        width: 25%;
+        margin: auto;
+        border: 2px red dashed;
+      }
+      td{
+        padding: 5px;
+      }
+    </style>
+
+    <script>
+
+      var edad;
+
+      function comenzar(){
+        edad = document.getElementById('miedad');
+        edad.addEventListener('change',cambia_rango,false); //evento change, cuando cambia cambia y pierde el foco, ejemplo range, select
+        document.datos_usuario.addEventListener('invalid',validar,true); //el formulario datos_usuario, está a la escucha cuando un nput está mal ingresado. y realiza la funcion.
+        //recordar que cuando el tercer valor es true, es para priorizar cuando un elemento está dentro de otro y los dos tienen evento, pero prioriza el que tiene el valor true
+        document.getElementById('enviar').addEventListener('click',enviar,false);
+
+        document.datos_usuario.addEventListener('input',validar_tiempo_real,false); //evento input, cuando cambia el valor se realiza la funcion (cualqueir cambio en el valor del texto)
+        //también sirve para hacer validaciones en tiempo real
+      }
+
+      function cambia_rango(){
+        var salida = document.getElementById('rango');
+        var calculo = edad.value - 30
+
+        if (calculo<30) {
+          calculo=0;
+          edad.value=30;
+        }
+
+        salida.innerHTML = calculo + " a " + edad.value;
+
+      }
+
+      function validar(e){ //esta funcion hace que el error del formulario se guarda y la opodemos obtener con la propuedad target del error e.
+        var elemento = e.target;
+        elemento.style.background = "pink";
+      }
+
+      function enviar(){
+        var correcto = document.datos_usuario.checkValidity(); //entrega el valor de true o false , dependiendo si el formulario pudo o no enviar los datos del formulario
+          if (correcto==true) {
+            document.datos_usuario.submit();
+        }
+      }
+
+      function validar_tiempo_real(e){
+        var elemento = e.target;
+
+        if (elemento.validity.valid ==true) {
+          elemento.style.background = "white";
+        }else {
+          elemento.style.background = "pink";
+        }
+      }
+
+      window.addEventListener("load",comenzar,false);
+
+    </script>
+
+  </head>
+  <body>
+
+    <section>
+      <form name="datos_usuario" class="" action="index.html" method="get">
+
+        <table>
+          <tr>
+            <td>Usuario:</td><td><input pattern="[A-Za-z]{3}" name="usuario" id="usuario" maxlength="10" required></td>
+          </tr>
+          <tr>
+            <td>Email:</td><td><input type="email" name="miemail" id="miemail" required> </td>
+          </tr>
+          <tr>
+            <td>Edad:</td><td><input type="range" name="miedad" id="miedad" min="0" max="120" value="30" step="30"> </td>
+          </tr>
+          <tr>
+            <td><output id="rango">0 a 30</output></td>
+          </tr>
+          <tr>
+            <td><input type="submit" name="enviar" id="enviar" value="Registrar"> </td>
+          </tr>
+        </table>
+      </form>
+    </section>
+
+
+  </body>
+</html>

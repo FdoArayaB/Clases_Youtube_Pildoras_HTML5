@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Comenzando a trabajar con javascript</title>
+
+    <script>
+
+      var imagen;
+
+
+      function tipoflor(){
+        alert("pensamientos");
+      }
+
+      function crecer(){
+        imagen.width = 225;
+        imagen.height = 225;
+      }
+
+      function menguar(){
+        imagen.width = 200;
+        imagen.height = 200;
+      }
+
+      function manejaFlor(){
+        // document.getElementsByTagName('img')[0].onclick = tipoflor
+        imagen = document.getElementsByTagName('img')[0];
+        imagen.addEventListener("mouseover",crecer,false);
+        imagen.addEventListener("mouseout",menguar,false);
+        imagen.addEventListener("click",tipoflor,false);
+      }
+
+      window.onload=manejaFlor
+
+    </script>
+  </head>
+  <body>
+
+    <!-- envento en linea. es decir que la flor desencadene la acción, agregando el manejador de evento como atributo en img -->
+    <!-- <p><img src="img/1.jpg" onmouseover="tipoflor()"> </p> -->
+
+    <!--manejador de evento como propiedad -->
+    <p><img src="img/1.jpg"> </p>
+  </body>
+</html>
