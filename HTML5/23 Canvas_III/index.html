@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Api Canvas Degradados Gradial</title>
+    <style>
+
+      section{
+        width: 500px;
+        margin: auto;
+      }
+      #lienzo{
+        /* background-color: pink; */
+      }
+
+    </style>
+
+    <script>
+
+      function comenzar(){
+        var elemento = document.getElementById('lienzo');
+        lienzo=elemento.getContext('2d');
+
+        var degradado = lienzo.createRadialGradient(250,150,100,250,150,200); //1y2:Centro primer ciruclo, 3: radio primer ciruclo; 4y5: Centro segundo ciruclo, 6: radio segundo ciruclo
+        degradado.addColorStop(0,'red'); //el primer indicador corresponde a donde la coordenada o punto termina el color
+        degradado.addColorStop(1,'green');
+
+        lienzo.fillStyle = degradado;
+        lienzo.fillRect(0,0,500,300); //para ver el degradado se debe dibujar un figura
+
+      }
+
+      window.addEventListener('load',comenzar,false);
+    </script>
+
+  </head>
+  <body>
+
+    <section id="dibujo">
+      <canvas id="lienzo" width="500" height="300">
+        Su navegador no soporta el elemento de HTML5 canvas
+
+
+      </canvas>
+    </section>
+
+  </body>
+</html>

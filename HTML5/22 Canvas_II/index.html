@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Api Canvas Degradados Lineal</title>
+    <style>
+
+      section{
+        width: 500px;
+        margin: auto;
+      }
+      #lienzo{
+        /* background-color: pink; */
+      }
+
+    </style>
+
+    <script>
+
+      function comenzar(){
+        var elemento = document.getElementById('lienzo');
+        lienzo=elemento.getContext('2d');
+
+        var degradado = lienzo.createLinearGradient(0,0,500,0);
+        // var degradado = lienzo.createLinearGradient(0,0,500,300);
+        degradado.addColorStop(0.3,'red'); //el primer indicador corresponde a donde la coordenada o punto termina el color
+        degradado.addColorStop(0.8,'green');
+        degradado.addColorStop(1,'blue');
+        lienzo.fillStyle = degradado;
+        lienzo.fillRect(0,0,500,300); //para ver el degradado se debe dibujar un figura
+
+      }
+
+      window.addEventListener('load',comenzar,false);
+    </script>
+
+  </head>
+  <body>
+
+    <section id="dibujo">
+      <canvas id="lienzo" width="500" height="300">
+        Su navegador no soporta el elemento de HTML5 canvas
+
+
+      </canvas>
+    </section>
+
+  </body>
+</html>
