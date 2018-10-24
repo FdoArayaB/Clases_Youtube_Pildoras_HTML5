@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Trazados</title>
+
+    <style>
+      #lienzo{
+        border: 1px solid red;
+      }
+    </style>
+
+    <script>
+      function comenzar(){
+        var elemento = document.getElementById("lienzo");
+        lienzo = elemento.getContext("2d");
+
+        //comienzo trazado (dibuando un triangulo)
+        lienzo.beginPath();
+        lienzo.moveTo(100,200);
+        lienzo.lineTo(200,200);
+        lienzo.lineTo(200,150);
+        lienzo.lineTo(100,150);
+        lienzo.lineTo(100,200);
+        lienzo.clip(); //mascaras, eso hace que todo lo que se dibuje en el canvas, solo se visualizara lo que cuando se dibuje dentro de la mascara
+
+        lienzo.beginPath();
+        for (var i = 0; i < 250; i+=10) {
+          lienzo.moveTo(0,i);
+          lienzo.lineTo(500,i);
+        }
+
+        lienzo.stroke()
+        // lienzo.fill()
+      }
+
+
+
+
+      window.addEventListener("load",comenzar,false);
+    </script>
+  </head>
+  <body>
+    <!--
+      Lo primero que hay que hacer es crear el trazado en javascrips que son con los metodos siguientes:
+        1)beginPath():comienza la figura, primer metodo llamado
+        2)closePath():ultimo metodo en ser llamado, si se utiliza el fill, este metodo puede ser ignorado
+
+      metodos para dibujar
+        stroke():solo contorno
+        fill()figura solida
+        clip(): crea una mascara
+
+      meotodos para crear el trazados (que posterioremente será dibujado)
+        moveTo(x,y)=mueve el lapiz  en las coordenadas definidas
+        lineTO(x,y)=genera una liena recta desde la posicion actual del lapiz hasta las nuevas coordenadas
+        Rect(x,y,ancho,alto)=genera rectangulo
+        Arc(x,y,radio,angulo_inicial,algulo_final,direccion)
+        bezierCurveTo(a,b,c,d,x,y)=genera una curva bezier cubica
+        quadraticCurveTo(a,b,x,y)=genera una curva bezier cuadratica
+    -->
+
+    <section id="dibujo">
+      <canvas id="lienzo" width="500" height="300">
+        Tu navegador no sorpota el elemento Canvas de HTML5
+      </canvas>
+    </section>
+  </body>
+</html>
