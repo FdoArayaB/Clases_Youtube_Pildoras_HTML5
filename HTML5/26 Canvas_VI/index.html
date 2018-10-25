@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Tipos de lineas</title>
+
+    <style>
+      #lienzo{
+        border: 1px solid red;
+      }
+      section{
+        width: 1000px;
+        position: relative;
+        margin: auto;
+      }
+    </style>
+
+    <script>
+      function comenzar(){
+        var elemento = document.getElementById('lienzo');
+        lienzo = elemento.getContext("2d");
+        lienzo.beginPath();
+        lienzo.arc(500,300,200,0,2*Math.PI,false);
+        lienzo.stroke();
+
+        lienzo.lineWidth=10;
+        lienzo.lineCap="round";
+        lienzo.beginPath();
+        lienzo.arc(500,320,150,0,Math.PI,false);
+        lienzo.stroke();
+
+        lienzo.lineWidth=5;
+        lienzo.lineJoin="miter";
+        lienzo.miterLimit=2;
+        lienzo.beginPath();
+        lienzo.moveTo(500,275);
+        lienzo.lineTo(550,320);
+        lienzo.lineTo(500,320);
+        lienzo.stroke();
+
+        lienzo.lineWidth=1;
+        lienzo.beginPath();
+        lienzo.arc(420,200,40,0,2*Math.PI,false)
+        lienzo.stroke();
+
+        lienzo.beginPath();
+        lienzo.arc(580,200,40,0,2*Math.PI,false)
+        lienzo.stroke();
+
+        lienzo.beginPath();
+        lienzo.arc(430,210,15,0,2*Math.PI,false)
+        lienzo.fill();
+
+        lienzo.beginPath();
+        lienzo.arc(590,210,15,0,2*Math.PI,false)
+        lienzo.fill();
+
+      }
+
+      window.addEventListener("load",comenzar,false);
+    </script>
+
+  </head>
+  <body>
+    <!--
+      lineWidth: grosor de la linea, Por defecto = 1
+      lineCap: terminación de linea (butt, round, Square)
+      lineJoin: conexión entre lineas (round, bevel, miter)
+      miterLimit: para usar junto a lineJoin con valor miter. Determina cuanto ha de extenderse la unión entre lineas
+      *importante: cada vez que se cambian las caracteristicas de una linea debe comenzarse un nuevo trazado con beginPath()
+    -->
+
+    <section>
+      <canvas id="lienzo" width="1000" height="600">
+      Su navegador no soporta el elemento canvas de HTML5
+      </canvas>
+    </section>
+
+
+
+  </body>
+</html>

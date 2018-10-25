@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Trazados Curvos</title>
+
+    <style>
+      #lienzo{
+        border: 1px solid red;
+      }
+    </style>
+
+    <script>
+      function comenzar(){
+        var elemento = document.getElementById('lienzo');
+        lienzo = elemento.getContext("2d");
+
+        lienzo.beginPath();
+        // //utilizando el Arc
+        // lienzo.arc(250,100,50,0,2*Math.PI,false);
+        // // arc(eje x centro, eje y centro, radio, angulo inicial, angulo final, true= dibuja lo contrario; false: dibuja lo que se indica)
+        // //angulos se manejan en radianes
+
+        // //utilizando quadraticCurveTo
+        // lienzo.moveTo(50,50); //inicio de la figura
+        // lienzo.quadraticCurveTo(200,125,50,200);
+        // // quadraticCurveTo(puntoControl_X,puntoControl_y, punto fin x, punto final y)
+
+        //utilizando bezierCurveTo
+        lienzo.moveTo(250,50); //inicio de la figura
+        lienzo.bezierCurveTo(200,125,300,125,250,200);
+        // bezierCurveTo(puntoControl1_X,puntoControl1_y, puntoControl2_X,puntoControl2_y, punto fin x, punto final y)
+        lienzo.stroke();
+
+
+      }
+
+
+      window.addEventListener("load",comenzar,false);
+    </script>
+
+  </head>
+  <body>
+    <!--
+      arc()
+      quadraticCurveTo()
+      bezierCurveTo()
+    -->
+    <section id="">
+      <canvas width="500" height="300" id="lienzo">
+        Tu navegador no soporta el elemento Canvas de HTML5
+      </canvas>
+    </section>
+  </body>
+</html>
