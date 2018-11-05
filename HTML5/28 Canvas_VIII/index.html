@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Transformaciones</title>
+
+    <style>
+      #lienzo{
+        border: 1px solid red;
+      }
+      section{
+        width: 1200px;
+        position: relative;
+        margin: auto;
+      }
+    </style>
+
+    <script>
+      function comenzar(){
+        var elemento = document.getElementById('lienzo');
+        lienzo = elemento.getContext('2d');
+
+        lienzo.font = "bold 20px verdana";
+        lienzo.fillText("Hola Alumnos",50,20);
+        lienzo.translate(100,100);
+        lienzo.scale(3,3); //son escalas de multiplicacion
+        lienzo.rotate(Math.PI);
+
+        //lienzo.fillText("Hola Alumnos",50,20);
+        lienzo.fillText("Hola Alumnos",-200,-100);
+      }
+
+      window.addEventListener("load",comenzar,false);
+    </script>
+
+  </head>
+  <body>
+    <!--
+      *Metodos transformaciones
+        a)translate(x,y): mueve el origen del lienzo (solo mueve el eje, no mueve el canvas)
+        b)rotate(radianes): rota el lienzo
+        c)scale(x,y) aumenta o disminuye el lienzo
+        d)transform(m1,m2,m3,m4,dx,dy):cambia las caracterisicas del lienzo
+        e)setTransform(m1,m2,m3,m4,dx,dy):reinicia las caracterisicas de la matrix
+        f)save(): graba el estado del lienzo
+        e)restore():restaura el estado grabado del lienzo
+
+      *Propiedades de las transformaciones
+    -->
+
+    <section>
+      <canvas id="lienzo" width="1200" height="900">
+      Su navegador no soporta el elemento canvas de HTML5
+      </canvas>
+    </section>
+
+
+
+  </body>
+</html>

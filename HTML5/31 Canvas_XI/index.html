@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Imagenes como Datos</title>
+
+    <style>
+      #lienzo{
+        border: 1px solid red;
+      }
+      section{
+        width: 1200px;
+        position: relative;
+        margin: auto;
+      }
+    </style>
+
+    <script>
+      function comenzar(){
+        var elemento = document.getElementById('lienzo');
+        lienzo = elemento.getContext('2d');
+
+        var imagen = new Image();
+        imagen.src="paisaje.jpg";
+        imagen.addEventListener("load",manipularImagen,false);
+
+      }
+
+      function manipularImagen(e){
+        imagen=e.target;
+        lienzo.drawImage(imagen,0,0);
+
+        var info_imagen = lienzo.getImageData(0,0,145,145);
+        var posicion;
+
+        for (var x = 0; x <= 145; x++) {
+          for (var y = 0; y <= 145; y++) {
+            posicion = (info_imagen.width*4*y)+(x*4); //esta esa una formula que determina la posicion de cada pixel del color rojo, si se le suma +1 es verde ,si es +2 es azu,si es alfa +3
+            info_imagen.data[posicion]=255-info_imagen.data[posicion]; //rojo
+            info_imagen.data[posicion+1]=255-info_imagen.data[posicion+1]; //verde
+            info_imagen.data[posicion+2]=255-info_imagen.data[posicion+2]; //azul
+          }
+        }
+
+        lienzo.putImageData(info_imagen,100,100);
+
+      }
+
+      window.addEventListener("load",comenzar,false);
+    </script>
+
+  </head>
+  <body>
+    <!--
+      Propiedades: para convertir imagenes en Datos
+        -getImageData(x,y,ancho,alto)
+        -putImageData(datosdelaImagen,x,y)
+        -createImageData(ancho,alto)
+
+
+    -->
+
+    <section>
+      <canvas id="lienzo" width="1200" height="900">
+      Su navegador no soporta el elemento canvas de HTML5
+      </canvas>
+    </section>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Textos</title>
+
+    <style>
+      #lienzo{
+        border: 1px solid red;
+      }
+      section{
+        width: 800px;
+        position: relative;
+        margin: auto;
+      }
+    </style>
+
+    <script>
+      function comenzar(){
+        var elemento = document.getElementById('lienzo');
+        lienzo = elemento.getContext("2d");
+
+        lienzo.shadowColor = "rgba(0,0,0,0.5)";
+        lienzo.shadowOffsetX = 4;
+        lienzo.shadowOffsetY = 4;
+        lienzo.shadowBlur = 5;
+
+        lienzo.font="bold 48px verdana";
+        lienzo.textAlign = "start";
+        lienzo.textBaseline = "top";
+        lienzo.fillText("Hola Alumnos",100,100);
+
+        // lienzo.moveTo(100,100);
+        // lienzo.lineTo(200,100);
+        // lienzo.stroke();
+
+        var dimensiones=lienzo.measureText("Hola Alumnos");
+        //lienzo.strokeRect(100,100,dimensiones.width+10,48+10);
+
+
+      }
+
+
+      window.addEventListener("load",comenzar,false);
+    </script>
+
+  </head>
+  <body>
+    <!--
+      *Propiedades para configurar Texto
+          a)font: mismos valores que en CSS
+          b)textAlign: alineamiento horizontal
+            start, end, left, right, center
+          c)textBaseLine:alineamiento vertical
+            Top, Hanging, Middle, Alphabetic, Ideographic, bottom
+      *Metodos para dibujar Texto
+          a)strokeText(texto,x,y):dibuja texto sin contorno
+          b)fillText(texto,x,y): dibuja texto con relleno
+          c)measureText(texto,x,y): devuelve información sobre el tamaño del texto, se utiliza para animaciones
+      * Propiedaes para sombras
+          a)shadowColor:color de la sombra
+          b)shadowOffsetX:desplazamiento horizontal de la sombra
+          c)shadowOffsetY:desplazamiento verticar de la sombra
+          d)shadowBlur:Difuminado de la sombre
+    -->
+
+    <section>
+      <canvas id="lienzo" width="800" height="600">
+      Su navegador no soporta el elemento canvas de HTML5
+      </canvas>
+    </section>
+
+
+
+  </body>
+</html>

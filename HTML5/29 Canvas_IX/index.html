@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Transformaciones</title>
+
+    <style>
+      #lienzo{
+        border: 1px solid red;
+      }
+      section{
+        width: 1200px;
+        position: relative;
+        margin: auto;
+      }
+    </style>
+
+    <script>
+      function comenzar(){
+        var elemento = document.getElementById('lienzo');
+        lienzo = elemento.getContext('2d');
+        lienzo.transform(1,0,0,1,0,0); //valores por defecto
+        lienzo.save(); //saca una foto del lienzo en este punto
+        lienzo.transform(3,0,0,1,0,0); //transform(escalaX,rotacion ,cesgar el canvas , escalaY,ejeX coordenada canvas,ejeY coordenada convas);
+        lienzo.font = "bold 20px verdana";
+        lienzo.fillText("Hola Alumnos",50,50);
+
+        lienzo.transform(1,0,0,5,0,0); //al llamar de nuevo este metodo, hace que sea acumulable, es decir que tamaño será por 3 y no el por defenco
+        lienzo.font = "bold 20px verdana";
+        lienzo.fillText("Hola Alumnos",50,50);
+
+        lienzo.setTransform(1,0,0,10,0,0); //reinicia los valores o transform y parte de los valores por defecto
+        lienzo.restore(); //lama a la foto del lienzo donde se utilizo el último save
+        lienzo.font = "bold 20px verdana";
+        lienzo.fillText("Hola Alumnos",50,50);
+
+
+      }
+
+      window.addEventListener("load",comenzar,false);
+    </script>
+
+  </head>
+  <body>
+    <!--
+      *Metodos transformaciones
+        a)translate(x,y): mueve el origen del lienzo (solo mueve el eje, no mueve el canvas)
+        b)rotate(radianes): rota el lienzo
+        c)scale(x,y) aumenta o disminuye el lienzo
+        d)transform(m1,m2,m3,m4,dx,dy):cambia las caracterisicas del lienzo
+        e)setTransform(m1,m2,m3,m4,dx,dy):reinicia las caracterisicas de la matrix
+        f)save(): graba el estado del lienzo
+        e)restore():restaura el estado grabado del lienzo
+
+      *Propiedades de las transformaciones
+    -->
+
+    <section>
+      <canvas id="lienzo" width="1200" height="900">
+      Su navegador no soporta el elemento canvas de HTML5
+      </canvas>
+    </section>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Superposiciones e Imagenes</title>
+
+    <style>
+      #lienzo{
+        border: 1px solid red;
+      }
+      section{
+        width: 1200px;
+        position: relative;
+        margin: auto;
+      }
+    </style>
+
+    <script>
+      function comenzar(){
+        var elemento = document.getElementById('lienzo');
+        lienzo = elemento.getContext('2d');
+
+        ////Superposiciones
+        // lienzo.fillStyle = "red";
+        // lienzo.fillRect(400,250,300,100);
+        // lienzo.globalCompositeOperation="source-in";
+        // lienzo.fillStyle = "yellow";
+        // lienzo.font = "bold 80px verdana";
+        // lienzo.textAlign="center";
+        // lienzo.textBaseline="middle";
+        // lienzo.fillText("Hola Alumnos",550,300);
+
+
+        var imagen = new Image();
+        imagen.src="html5.png";
+        imagen.addEventListener("load",function(){ //funcion anonima
+          //lienzo.drawImage(imagen,50,100);
+          //lienzo.drawImage(imagen,0,0,elemento.width,elemento.height);
+          lienzo.drawImage(imagen,50,10,75,75,0,0,300,300); //(imagen,inicio del recorteX,inicio del recorteY,donde iniciara a dibujarseX,donde iniciara a dibujarseY,tamañoX,tamañoY)
+
+
+        },false);
+
+      }
+
+      window.addEventListener("load",comenzar,false);
+    </script>
+
+  </head>
+  <body>
+    <!--
+      Propiedad Superposiciones: globalCompositeOperation
+      https://www.w3.org/TR/2dcontext/#dom-context-2d-globalcompositeoperation
+
+      Propiedad Imagenes: drawImage()
+        Parametros:
+          a)drawImage(imagen,x,y)
+          b)drawImage(imagen,x,y,ancho,alto)
+          c)drawImage(image,x1,y1,ancho1,alto1,x2,y2,ancho2,alto2)
+
+    -->
+
+    <section>
+      <canvas id="lienzo" width="1200" height="900">
+      Su navegador no soporta el elemento canvas de HTML5
+      </canvas>
+    </section>
+
+
+
+  </body>
+</html>
