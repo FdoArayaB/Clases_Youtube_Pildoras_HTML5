@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Animaciones i - pelota saltando</title>
+
+    <style>
+      #lienzo{
+        border: 1px solid red;
+      }
+      section{
+        width: 1200px;
+        position: relative;
+        margin: auto;
+      }
+    </style>
+
+    <script>
+
+      var y = 300;
+      var estado = "bajando";
+
+      function comenzar(){
+        var elemento = document.getElementById('lienzo');
+        lienzo = elemento.getContext('2d');
+
+        setInterval(animacion,50);
+      }
+
+      function animacion(){
+
+        if (y + 40 == 900) {
+          estado = "subiendo";
+        }
+
+        if (y == 300) {
+          estado = "bajando";
+        }
+
+
+        if (y<=860 && estado =="bajando") {
+          lienzo.clearRect(0,0,1200,900);//genera un reactangulo y todo lo que esta dentro del rectangulo lo borra
+          lienzo.beginPath();
+          lienzo.arc(500,y,40,0,Math.PI*2,false);
+          lienzo.fill();
+          y = y + 10;
+
+        }
+
+
+        if (y>=300 && estado =="subiendo") {
+          lienzo.clearRect(0,0,1200,900);//genera un reactangulo y todo lo que esta dentro del rectangulo lo borra
+          lienzo.beginPath();
+          lienzo.arc(500,y,40,0,Math.PI*2,false);
+          lienzo.fill();
+          y = y - 10;
+
+        }
+
+      }
+
+
+      window.addEventListener("load",comenzar,false);
+    </script>
+
+  </head>
+  <body>
+    <!--
+      Propiedades: hacer animaciones
+        clearRect(); borrar la información de una parte del canvas o de todo el canvas
+        setInterval(); se ejecuta un codigo x veces por un periodo de tiempo
+         clearInterval(); resetear set interval, es decir interrumpe el setInterval
+    -->
+
+    <section>
+      <canvas id="lienzo" width="1200" height="900">
+      Su navegador no soporta el elemento canvas de HTML5
+      </canvas>
+    </section>
+
+
+
+  </body>
+</html>
