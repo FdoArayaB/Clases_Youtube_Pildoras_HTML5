@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Drag&Drop</title>
+
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="estilos.css">
+    <script type="text/javascript" src="dragdrop.js"></script>
+
+  </head>
+  <body>
+    <!--
+      Eventos para el objeto que se va a arrastrar
+        dragstart: desencadena la accion al comenzar a arrastrar
+        drag: desecadena la accion durante la operacion de arrastre
+        dragend: desencadena la accion al terminar de arrastrar (Ej:soltar boton izquierdo del raton)
+
+      Eventos zona de destino
+        dragenter: cuando el objeto entra a la zona de destino
+        dragover: cuando el raton se meuve sobre el area de destino
+        drop: cuando el elemento es soltado en el area de destino
+        dragleave: cuando el elemento arrastrado sale del area de destino
+
+      antes de realizar esto, se deben preparar tanto el objeto que se va a arreastra y el lugar de destino, dandoles información respecto al objeto, es decir
+      que información se van a compartir.
+
+
+      Objeto: dataTransfer
+        metodos:
+          setData: declara que datos serán transferidos
+          getData: declara que datos serán capturados.
+
+    -->
+    <section id="zona_destino">
+      Arrastre el elemento hasta aquí
+    </section>
+
+    <section id="cajaimagen">
+      <img src="flores1.jpg" id="imgFlores">
+    </section>
+
+  </body>
+</html>

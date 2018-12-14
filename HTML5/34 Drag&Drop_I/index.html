@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Drag&Drop</title>
+
+    <style>
+      #cajaimagen{
+        float:left;
+        width:300px;
+        magin:30px;
+        border: 1px solid red;
+      }
+
+      #zona_destino{
+        float: left;
+        width: 500px;
+        height: 450px;
+        margin: 100px;
+        border: 1px solid black;
+      }
+
+    </style>
+
+    <script>
+      function comenzar(){
+        var elem_origen = document.getElementById('imgFlores');
+        elem_origen = addEventListener("dragstart", function(){alert("comenzo a moverse el objeto")},false);
+        //elem_origen = addEventListener("dragend", function(){alert("Solte el objeto")},false);
+        //elem_origen = addEventListener("drag", function(){alert("el objeto se esta moviendo")},false); //este se queda pegado, dado que genera el la alerta por cada
+      }
+
+      window.addEventListener("load",comenzar,false);
+    </script>
+
+  </head>
+  <body>
+    <!--
+      Eventos para el objeto que se va a arrastrar
+        dragstart: desencadena la accion al comenzar a arrastrar
+        drag: desecadena la accion durante la operacion de arrastre
+        dragend: desencadena la accion al terminar de arrastrar (Ej:soltar boton izquierdo del raton)
+
+      Eventos zona de destino
+        dragenter: cuando el objeto entra a la zona de destino
+        dragover: cuando el raton se meuve sobre el area de destino
+        drop: cuando el elemento es soltado en el area de destino
+        dragleave: cuando el elemento arrastrado sale del area de destino
+
+      antes de realizar esto, se deben preparar tanto el objeto que se va a arreastra y el lugar de destino, dandoles información respecto al objeto, es decir
+      que información se van a compartir.
+
+      Objeto: datatransfer
+        metodos: SetData: declara que datos serán transferidos
+        getData: declara que datos serán capturados.
+    -->
+    <section id="zona_destino">
+      Arrastre el elemento hasta aquí
+    </section>
+
+    <section id="cajaimagen">
+      <img src="flores1.jpg" id="imgFlores">
+    </section>
+
+  </body>
+</html>
